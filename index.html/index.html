@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Closed: Network Execution</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BLOOD ANIMATION EFFECT LAYER -->
+    <div id="blood-screen-effect"></div>
+
+    <!-- 1. OPENING MENU SCREEN -->
+    <div id="opening-screen" class="screen active">
+        <div class="menu-glitch"></div>
+        <h1>🔍 WHOS THE KILLER?</h1>
+        <p class="subtitle">An IT Faculty Murder Mystery</p>
+        <div class="terminal-card">
+            <p>> SYSTEM: 5 Levels of encryption locks.</p>
+            <p>> WARNING: Every mistake costs an NPC life.</p>
+        </div>
+        <button onclick="startGame()">START GAME</button>
+    </div>
+
+    <!-- 2. MAIN GAME SCREEN -->
+    <div id="game-screen" class="screen">
+
+        <!-- Header Tracker -->
+        <div class="game-header">
+            <div>ROUND: <span id="round-txt" class="text-red">1/5</span></div>
+            <div>SUSPECTS ALIVE: <span id="suspect-count" class="text-green">3</span></div>
+            <div>TOTAL CASUALTIES: <span id="victim-count" class="text-blood">1</span></div>
+        </div>
+
+        <!-- Left Column: Scene & Logic -->
+        <div class="main-investigation">
+            <div class="crime-scene-panel" id="crime-scene">
+                <!-- Dynamic text injected by JS -->
+            </div>
+
+            <div class="question-box">
+                <p id="logic-question">Loading terminal puzzle...</p>
+                <div class="options-grid" id="options-container">
+                    <!-- Buttons injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Case Logs & Dialogue -->
+        <div class="side-panel">
+            <div class="log-box">
+                <div class="log-title">📂 CASE FILES & HINTS</div>
+                <div id="case-hints">
+                    <!-- Dynamic hints injected by JS -->
+                </div>
+            </div>
+
+            <div class="dialogue-box" id="dialogue-history">
+                <p><span class="char-conan">Conan:</span> "Ah-le-le? Something strange is going on with this computer..."</p>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Kogoro's Accusation Suite -->
+        <div class="accusation-panel">
+            <div class="kogoro-input-zone">
+                <span class="char-kogoro">Kogoro Mouri:</span> "Mwahaha! I, the great Kogoro Mouri, have seen through the trick! The culprit is..."
+                <select id="suspect-select-box">
+                    <!-- Suspect options injected by JS -->
+                </select>
+            </div>
+            <button onclick="makeAccusation()" class="btn-accuse">👉 ACCUSE!!</button>
+        </div>
+    </div>
+
+    <!-- 3. NIGHT / TRANSITION SCREEN -->
+    <div id="overlay-screen">
+        <div class="night-text" id="overlay-text">THE NIGHT PASSES...</div>
+        <div class="dripping-blood-ui"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
