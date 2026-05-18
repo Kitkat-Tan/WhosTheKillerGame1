@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Closed</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- OVERNIGHT PROGRESSION OVERLAY -->
+        <div id="blood-overlay">
+            <div class="blood-text">🩸 THE NEXT DAY 🩸</div>
+            <p id="blood-details" style="font-size: 1.1rem; margin-top: 20px; max-width: 600px; color: #ffccd0;"></p>
+            <button class="btn" style="margin-top: 25px; background: #000; border-color: #7a1f1f; color: #ff7b72;" onclick="dismissBloodSplash()">Advance Investigation Time</button>
+        </div>
+
+        <header>
+            <div><strong>CRIME DOSSIER:</strong> <span id="case-number">Case 1</span></div>
+            <div style="display: flex; gap: 15px;">
+                <div class="status-box" style="color: #bc8cff;">🔓 CLUES EARNED: <span id="hints-counter">0</span> / 3</div>
+                <div class="status-box" style="color: #ff7b72;">📅 TIME ELAPSED: <span id="day-counter">Day 1</span> / 3</div>
+                <div class="status-box">❤️ STRIKES: <span id="strike-counter">3</span></div>
+            </div>
+        </header>
+
+        <!-- INTRO SCREEN -->
+        <div id="screen-intro" class="screen active">
+            <h2>Detective Conan: Technical Target Matrix</h2>
+            <p>A series of targeted infrastructure exploits are destabilizing the network corridors. You must decipher the system anomalies and track the specific weapons used to expose the true culprit.</p>
+
+            <p style="color: #ff7b72; font-weight: bold;">⚠️ WORKSPACE RULES:</p>
+            <ul>
+                <li><strong>Answering Grants Clues:</strong> Standalone trace files have been entirely omitted. Correctly answering technical logic questions dynamically extracts unique Case Log segments containing clues regarding items or behaviors.</li>
+                <li><strong>Unrestricted Arrests:</strong> Kogoro's indictment terminal is active around the clock. Issue an arrest warrant **whenever you want**, with or without clues unlocked.</li>
+                <li>Incorrect logic tracking or false accusations consume 1 strike and advance the timeline.</li>
+            </ul>
+            <button class="btn" onclick="startInvestigation()">Initialize Sandbox</button>
+        </div>
+
+        <!-- MAIN GAME ENGINE -->
+        <div id="screen-main" class="screen">
+            <div class="story-header">
+                <h3 style="margin-top:0; color:#ff7b72;">🚨 RECOVERY METRIC LOG</h3>
+                <p id="story-narrative"></p>
+            </div>
+
+            <h4 style="margin: 0 0 10px 0;">Suspect Directory:</h4>
+            <div id="roster-summary"></div>
+
+            <div class="grid-layout">
+                <!-- LEFT LOGICAL STREAM WINDOW -->
+                <div>
+                    <h4 style="margin: 0 0 10px 0;">📂 Terminal Log & Unlocked Case Data</h4>
+                    <div id="terminal-stream" style="background:#070b12; padding:15px; border-radius:6px; border:1px solid #212e46; min-height:160px; max-height:220px; overflow-y:auto; margin-bottom:15px;"></div>
+
+                    <div id="logic-workspace" style="background: #111824; padding: 18px; border-radius: 8px; border: 1px solid #58a6ff;">
+                        <span id="step-id" style="color:#58a6ff; font-weight:bold; font-size:0.8rem;">💡 LOGIC COMPONENT ACTIVE</span>
+                        <p id="step-question" style="margin: 8px 0; font-weight: bold; font-size:0.95rem;"></p>
+                        <div id="clue-canvas"></div>
+                        <div id="interactive-input-area"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT DIRECT INTERACTION WINDOW -->
+                <div>
+                    <h4 style="margin: 0 0 5px 0;">Active Staff</h4>
+                    <div id="interrogate-buttons-container" style="display:grid; grid-template-columns: 1fr 1fr; gap:6px;"></div>
+
+                    <h4 style="margin: 30px 0 5px 0; color:#ff7b72;">Who's the suspect?</h4>
+                    <div id="indictment-box" style="background:#221515; padding:12px; border-radius:8px; border:1px solid #ff7b72;">
+                        <div id="pointing-buttons-area" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="screen-end" class="screen">
+            <div style="text-align: center;" id="end-graphic-container"></div>
+            <h2 id="end-header" style="text-align: center; margin-top: 10px;"></h2>
+            <p id="end-text" style="text-align: center; background:#1c2433; padding:20px; border-radius:6px; line-height:1.6;"></p>
+            <div style="text-align:center; margin-top: 20px;">
+                <button class="btn" id="end-action-trigger" onclick="advanceNextCase()">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    
+     
+</body>
+</html>
